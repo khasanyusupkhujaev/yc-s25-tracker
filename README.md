@@ -26,7 +26,7 @@ The app collects official YC data, enriches company profiles with LinkedIn infor
 
 ---
 
-## 🛠Tech Stack
+## Tech Stack
 
 - [Python 3](https://www.python.org/)  
 - [Requests](https://docs.python-requests.org/) — fetch YC data & search results  
