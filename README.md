@@ -38,13 +38,12 @@ The app collects official YC data, enriches company profiles with LinkedIn infor
 
 ## Project Structure
 
-.
-├── yc_scraper.py # Step 1: Scrape YC OSS API (S25 batch)
-├── linkedin_finder.py # Step 2: Enrich with LinkedIn mentions
-├── app.py # Step 3: Streamlit dashboard
-├── yc_s25_companies.csv # Output of yc_scraper.py
-├── yc_s25_companies_enriched.csv # Output of linkedin_finder.py
-└── README.md
+yc_scraper.py # Step 1: Scrape YC OSS API (S25 batch)
+linkedin_finder.py # Step 2: Enrich with LinkedIn mentions
+app.py # Step 3: Streamlit dashboard
+yc_s25_companies.csv # Output of yc_scraper.py
+yc_s25_companies_enriched.csv # Output of linkedin_finder.py
+README.md
 
 This project is deployed on Streamlit Community Cloud.
 You can access the live version here:
