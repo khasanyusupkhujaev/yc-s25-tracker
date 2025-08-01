@@ -2,7 +2,7 @@ import requests
 import pandas as pd
 import time
 
-API_KEY = "0e1e5a7afda00fa6b640dd67c0913929c1686d1b"
+API_KEY = "ENTER_YOUR_KEY"
 SEARCH_URL = "https://google.serper.dev/search"
 
 df = pd.read_csv("yc_s25_companies.csv")
@@ -15,7 +15,6 @@ headers = {
 
 for idx, row in df.iterrows():
     company_name = row["company_name"]
-    # Add "+ YC" to prioritize YC mentions in results
     query = f'site:linkedin.com/company "{company_name}" + YC'
 
     try:
@@ -50,13 +49,13 @@ for idx, row in df.iterrows():
     })
 
     print(f"[{idx+1}/{len(df)}] {company_name} -> YC S25: {yc_s25_flag}")
-    time.sleep(2)  # prevent hitting API rate limits
+    time.sleep(2)  
 
-# Save results
 pd.DataFrame(enriched).to_csv("yc_s25_companies_enriched2.csv", index=False)
 print("Enrichment completed and saved to yc_s25_companies_enriched.csv")
 
 
+#GET YC COMPANIES NOT IN YC LIST
 
 # import requests
 # import pandas as pd
@@ -72,7 +71,6 @@ print("Enrichment completed and saved to yc_s25_companies_enriched.csv")
 
 # all_companies = []
 
-# # Paginate through multiple Google result pages
 # for page in range(0, 5):  # adjust number of pages
 #     print(f"Scraping page {page+1}...")
 #     query = 'site:linkedin.com/company "YC S25"'
@@ -98,15 +96,12 @@ print("Enrichment completed and saved to yc_s25_companies_enriched.csv")
 #                 "Mentions YC S25": "YC S25" in (result.get("title","") + result.get("snippet","")).upper()
 #             })
     
-#     time.sleep(3)  # to avoid API rate limiting
+#     time.sleep(3)  
 
-# # Convert to DataFrame
 # df_linkedin = pd.DataFrame(all_companies)
 
-# # Remove duplicates
 # df_linkedin.drop_duplicates(subset=["LinkedIn Page"], inplace=True)
 
-# # Merge with YC CSV
 # df_yc = pd.read_csv("yc_s25_companies.csv")
 # df_merged = df_linkedin.merge(
 #     df_yc,
@@ -116,6 +111,5 @@ print("Enrichment completed and saved to yc_s25_companies_enriched.csv")
 #     suffixes=("_linkedin", "_yc")
 # )
 
-# # Save both discovered and enriched YC companies
 # df_merged.to_csv("yc_s25_linkedin_discovery.csv", index=False)
 # print(f"Saved {len(df_merged)} companies to yc_s25_linkedin_discovery.csv")
